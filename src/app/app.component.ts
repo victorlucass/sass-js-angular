@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { teste } from './dom/app.dom';
+import { Main } from './dom/main.dom';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +10,6 @@ export class AppComponent implements OnInit {
   title = 'sass-js';
 
   ngOnInit() {
-    teste();
+    const dom = new Main();
   }
 }
