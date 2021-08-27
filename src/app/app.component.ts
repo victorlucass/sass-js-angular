@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Main } from './dom/main.dom';
+import { Main } from './dom/navegacaoTab.dom';
 
 @Component({
   selector: 'app-root',
