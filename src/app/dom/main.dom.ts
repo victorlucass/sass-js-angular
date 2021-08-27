@@ -2,9 +2,9 @@ export class Main {
   tabMenu = document.querySelectorAll('.js-tabmenu li');
   tabContent = document.querySelectorAll('.js-tabcontent section');
   constructor() {
+    this.tabContent[0].classList.add('ativo');
     this.navegacaoPorTab();
   }
-
   private navegacaoPorTab() {
     this.tabMenu.forEach((item, index) => {
       item.addEventListener('click', () => {
