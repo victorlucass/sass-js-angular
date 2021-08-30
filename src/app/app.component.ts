@@ -7,7 +7,7 @@ import { Main } from './dom/navegacaoTab.dom';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  title = 'sass-js';
+  title = 'Animais Fantásticos';
 
   ngOnInit() {
     const dom = new Main();
