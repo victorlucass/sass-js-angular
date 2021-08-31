@@ -15,7 +15,6 @@ class InitTabNav {
     this.tabMenu.forEach((item, index) => {
       item.addEventListener('click', () => {
         this.activeTab(index);
-        // console.log(index);
       });
     });
   }
@@ -31,7 +30,7 @@ class AccordionList {
   accordionList = document.querySelectorAll('.js-accordion dt');
   constructor() {
     this.accordionList[0].classList.add('ativo');
-    this.accordionList[0].nextElementSibling?.classList.add('ativo')
+    this.accordionList[0].nextElementSibling?.classList.add('ativo');
     this.initAccordion();
   }
 
@@ -39,11 +38,11 @@ class AccordionList {
     function activeAccordion(event: any) {
       const element = event.currentTarget; //Pega o dt
       element.nextElementSibling.classList.toggle('ativo');
-      element.classList.toggle('ativo')
+      element.classList.toggle('ativo');
     }
     this.accordionList.forEach((item) => {
-      item.addEventListener('click', activeAccordion)
-    })
+      item.addEventListener('click', activeAccordion);
+    });
   }
 }
 
@@ -60,7 +59,7 @@ class LinkExterno {
       const section = document.querySelector(href);
       section.scrollIntoView({
         behavior: 'smooth',
-        block: 'start'
+        block: 'start',
       });
       /*
       const top = section.offsetTop; //Pega o valor do topo da section
@@ -72,24 +71,30 @@ class LinkExterno {
     */
     }
     this.linkInterno.forEach((link) => {
-      link.addEventListener('click', scrollToSection)
+      link.addEventListener('click', scrollToSection);
     });
   }
 }
 
 class AnimaScroll {
-  sections = document.querySelectorAll('.js-scroll');
-
   constructor() {
     this.init();
   }
 
   init() {
+    const sections = document.querySelectorAll('.js-scroll');
+    const windowMetade = window.innerHeight * 0.6;
     function animaScroll() {
-      console.log('rolando!');
+      sections.forEach((element) => {
+        const sectionTop = element.getBoundingClientRect().top;
+        const isSectionVisible: boolean = sectionTop - windowMetade < 0;
+        if (isSectionVisible) {
+          element.classList.add('ativo');
+          console.log(sectionTop - windowMetade);
+        }
+      });
     }
 
     window.addEventListener('scroll', animaScroll);
-
   }
 }
