@@ -1,8 +1,8 @@
-export class Main {
-  constructor() {
-    const x = new InitTabNav();
-    const y = new AccordionList();
-  }
+export function myDom(): void {
+  const x = new InitTabNav();
+  const y = new AccordionList();
+  const w = new LinkExterno();
+  const r = new AnimaScroll();
 }
 class InitTabNav {
   tabMenu = document.querySelectorAll('.js-tabmenu li');
@@ -44,5 +44,52 @@ class AccordionList {
     this.accordionList.forEach((item) => {
       item.addEventListener('click', activeAccordion)
     })
+  }
+}
+
+class LinkExterno {
+  linkInterno = document.querySelectorAll('.js-menu a[href^="#"]');
+  constructor() {
+    this.initScroll();
+  }
+
+  initScroll() {
+    function scrollToSection(event: any) {
+      event.preventDefault();
+      const href = event.currentTarget.getAttribute('href');
+      const section = document.querySelector(href);
+      section.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+      /*
+      const top = section.offsetTop; //Pega o valor do topo da section
+      window.scrollTo({
+        top: top,
+        behavior: 'smooth'
+      })
+      // console.log(section.offsetTop)
+    */
+    }
+    this.linkInterno.forEach((link) => {
+      link.addEventListener('click', scrollToSection)
+    });
+  }
+}
+
+class AnimaScroll {
+  sections = document.querySelectorAll('.js-scroll');
+
+  constructor() {
+    this.init();
+  }
+
+  init() {
+    function animaScroll() {
+      console.log('rolando!');
+    }
+
+    window.addEventListener('scroll', animaScroll);
+
   }
 }

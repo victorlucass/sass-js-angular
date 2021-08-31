@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Main } from './dom/navegacaoTab.dom';
+import { myDom } from './dom/navegacaoTab.dom';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +8,7 @@ import { Main } from './dom/navegacaoTab.dom';
 })
 export class AppComponent implements OnInit {
   title = 'Animais Fantásticos';
-
   ngOnInit() {
-    const dom = new Main();
+    myDom();
   }
 }
