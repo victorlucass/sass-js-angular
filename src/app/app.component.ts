@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { myDom } from './dom/navegacaoTab.dom';
+import { script } from './custom/script';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +9,6 @@ import { myDom } from './dom/navegacaoTab.dom';
 export class AppComponent implements OnInit {
   title = 'Animais Fantásticos';
   ngOnInit() {
-    myDom();
+    script();
   }
 }
